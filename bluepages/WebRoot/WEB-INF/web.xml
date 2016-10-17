@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>BluePages</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <!-- 配置Servlet的信息 -->
+  <!-- 先配置Servlet的基本信息 -->
+  <servlet>
+  	<!-- 先配置Servlet的名称（可以是任意的，尽量都使用Servlet的名称） -->
+  	<servlet-name>UserServlet</servlet-name>
+  	<!-- 配置Servlet类的全路径 -->
+  	<servlet-class>cn.bluepages.web.servlet.UserServlet</servlet-class>
+  </servlet>
+  
+  <!-- 配置Servlet的访问的路径（映射信息） -->
+  <servlet-mapping>
+  	<!-- 先配置Servlet的名称，该名称必须和上面名称是相同的 -->
+  	<servlet-name>UserServlet</servlet-name>
+  	<!-- 配置访问路径 -->
+  	<url-pattern>/bluepageDB</url-pattern>
+  </servlet-mapping>
+</web-app>
