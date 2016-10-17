@@ -130,7 +130,7 @@ function createList(data){
 var flushList = function(){
     $(".g-pagecontainer-search .u-list").children().remove();
 }
-    /*updata employeeInfo result*/
+/*updata employeeInfo result*/
 var restructResult = function(index){
     $(".g-pagecontainer-result .u-li img").attr("src", g_employeeInfo[index].imgURL);
   	$(".g-pagecontainer-result .u-li .u-p-name").html(g_employeeInfo[index].name).css({"font-size":"100%","color":"black"});
@@ -141,7 +141,7 @@ var restructResult = function(index){
   	$(".g-pagecontainer-result .m-info-email .u-p-value").html(g_employeeInfo[index].email);
   	$(".g-pagecontainer-result .m-info-notesID .u-p-value").html(g_employeeInfo[index].notes_ID);
   	$(".g-pagecontainer-result .m-info-preferredContact .u-p-value").html(g_employeeInfo[index].preferred_Contact_Method);
-
+/*check the local storage elements,if the clicked element already exist,update it!*/
   	for(var i=0;i<localStorage.length;i++){
     	if(JSON.parse( localStorage.getItem(localStorage.key(i))).name == g_employeeInfo[index].name)
     	{ 
@@ -150,9 +150,11 @@ var restructResult = function(index){
     		return;
     	};
     }
+/*if the localstorage is 'full',update the list.*/
     if(localStorage.length == 10){
     	localStorage.removeItem(localStorage.key(0));
     }
+/*save the clicked element to the localstorage*/
   	localStorageSet(new Date(), JSON.stringify(g_employeeInfo[index]));
 }
 function initListLocal(){
